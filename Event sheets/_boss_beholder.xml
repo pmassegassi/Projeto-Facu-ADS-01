@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_boss_beholder</name>
+    <events>
+        <comment>BEHOLDER</comment>
+        <comment>Movimentos</comment>
+        <event-block sid="941849863232369">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="414219852838604" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="181681434059637" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;BEHOLDER_PLAYER&quot;</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="964521563245196" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="467233087246963" type="obj_beholder">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="296832059796464" type="obj_beholder">
+                    <param id="0" name="Angle">angle(obj_beholder.x + 100, obj_beholder.y, obj_player.x, obj_player.y) </param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="706741702001919" type="obj_beholder">
+                    <param id="0" name="Speed">choose(random(150, 250), random(350, 450))</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="806644923762490" type="obj_orn_door_boss_beholder">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="341519432946469" type="obj_orn_door_boss_beholder">
+                    <param id="0" name="Animation">&quot;ID_CLOSE&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="141233390052749" type="Audio">
+                    <param id="0" name="Audio file">Large-Monster-Death-01</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque do player sobre o beholder</comment>
+        <event-block sid="833694707288904">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="190301184782414" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="261429768934979" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_beholder_offset_are</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="943384643889509" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="617574168645598" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="308368634819355" type="Audio">
+                    <param id="0" name="Audio file">AnyConv.com__enemy_dead_10</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="130549521861844" type="obj_beholder">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">0.5</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="499136394460277" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1 * obj_player.damage_enemy_plus</param>
+                </action>
+                <action id="-10" name="Set value" sid="508783037618559" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_life_boss.HP_CURRENT*100/obj_bar_life_boss.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="902850403559979" type="obj_bar_life_boss">
+                    <param id="0" name="Width">obj_bar_life_boss.BAR_SIZE*obj_bar_life_boss.PORCENT/100</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque do beholder sobre o player</comment>
+        <event-block sid="613057645037623">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="347816044710788" type="obj_beholder">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="889779097219604" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="664367140149334" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="841457378643251" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="399573509794204" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Morte do beholder</comment>
+        <event-block sid="861239153142070">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="465057400742131" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="436603787200071" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;BEHOLDER_PLAYER&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="154641544031183" type="obj_beholder">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="611049586054611" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="210929572657825" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound_boss_battle&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="906631342334024" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="594670082965698" type="obj_beholder">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="394853228117413" type="obj_beholder">
+                    <param id="0" name="Animation">&quot;ID_DEAD&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="885715872515722" type="obj_beholder">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="696687201140332" type="obj_beholder">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="525066822472688" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-3" name="Create object" sid="359633581497386" type="System">
+                    <param id="0" name="Object to create">obj_item_key_2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">obj_beholder.X</param>
+                    <param id="3" name="Y">obj_beholder.Y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="742912302276929" type="obj_beholder" />
+                <action id="-15" name="Set visible" sid="253505742174280" type="obj_hud_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="840660043937662" type="obj_bar_life_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="443983429645158" type="obj_avatar_small_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="22" name="Set paused" sid="826265235968551" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="759946888150863" type="obj_player">
+                    <param id="0" name="Instance variable">bg_sound</param>
+                    <param id="1" name="Value">&quot;bg_sound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

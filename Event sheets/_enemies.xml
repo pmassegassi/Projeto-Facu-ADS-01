@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_enemies</name>
+    <events>
+        <comment>Inimigo Gosma</comment>
+        <event-block sid="187593953021253">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="297004327885946" type="obj_goop">
+                    <param id="0" name="Instance variable">var_gloob_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Left&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="486896094721788" type="obj_goop">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="696560995935854" type="obj_goop">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="609200012289307">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="505223547212890" type="obj_goop">
+                    <param id="0" name="Instance variable">var_gloob_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Right&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="851860756563905" type="obj_goop">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="629137779968103" type="obj_goop">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="654604825693893">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="166493834952035" type="obj_goop">
+                    <param id="0" name="Object">obj_floor_point</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="473430678221071" type="obj_goop">
+                    <param id="0" name="Instance variable">var_gloob_direction</param>
+                    <param id="1" name="Value">obj_floor_point.Move</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Inimigo Morcego</comment>
+        <event-block sid="808322182245108">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="724490847262883" type="obj_bat">
+                    <param id="0" name="Instance variable">var_bat_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Left&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="412430328780778" type="obj_bat">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="671071200931587" type="obj_bat">
+                    <param id="0" name="Angle">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="517190928097130">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="548658776914270" type="obj_bat">
+                    <param id="0" name="Instance variable">var_bat_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Right&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="554589716536620" type="obj_bat">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="384454448884314" type="obj_bat">
+                    <param id="0" name="Angle">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="714489984354330">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="812572431568337" type="obj_bat">
+                    <param id="0" name="Object">obj_fly_point</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="360787240028488" type="obj_bat">
+                    <param id="0" name="Instance variable">var_bat_direction</param>
+                    <param id="1" name="Value">obj_fly_point.Move</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Inimigo Caveira</comment>
+        <event-block sid="506710800123872">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="352491946896102" type="obj_enemy">
+                    <param id="0" name="Instance variable">var_skull_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Left&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="388178764706241" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="591356952836206" type="obj_enemy">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="293666328564393" type="obj_enemy">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="637334918845299">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="537808347745554" type="obj_enemy">
+                    <param id="0" name="Instance variable">var_skull_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Right&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="706965786231614" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="197487998189939" type="obj_enemy">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="898453740441745" type="obj_enemy">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="686349489428051">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="529007506986575" type="obj_enemy">
+                    <param id="0" name="Object">obj_floor_point</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="220556743650592" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="819587122931390" type="obj_enemy">
+                    <param id="0" name="Instance variable">var_skull_direction</param>
+                    <param id="1" name="Value">obj_floor_point.Move</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque da caveira quando estiver perto heroi</comment>
+        <event-block sid="366052635527524">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="717032010961689" type="obj_enemy">
+                    <param id="0" name="Object">obj_player</param>
+                    <param id="1" name="Offset X">-50</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="573426743564530" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="968850953164503" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="601896895534956" type="obj_enemy">
+                    <param id="0" name="Instance variable">var_skull_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Left&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="111890348820522" type="obj_enemy">
+                    <param id="0" name="Instance variable">enemy_state</param>
+                    <param id="1" name="Value">&quot;ATTACK&quot;</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="877654536799574" type="obj_enemy">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="542676613175701">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="408759640110887" type="obj_enemy">
+                    <param id="0" name="Object">obj_player</param>
+                    <param id="1" name="Offset X">50</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="780383654769046" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="404286055227948" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="762806787483644" type="obj_enemy">
+                    <param id="0" name="Instance variable">var_skull_direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Right&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="429545119170778" type="obj_enemy">
+                    <param id="0" name="Instance variable">enemy_state</param>
+                    <param id="1" name="Value">&quot;ATTACK&quot;</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="447064499676386" type="obj_enemy">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="727303548084158">
+            <conditions>
+                <condition id="9" inverted="1" name="Is overlapping at offset" sid="476134860888169" type="obj_enemy">
+                    <param id="0" name="Object">obj_player</param>
+                    <param id="1" name="Offset X">50</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="9" inverted="1" name="Is overlapping at offset" sid="274129698977558" type="obj_enemy">
+                    <param id="0" name="Object">obj_player</param>
+                    <param id="1" name="Offset X">-50</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="217113325500205" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="876111527377835" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="903310638715985" type="obj_enemy">
+                    <param id="0" name="Instance variable">enemy_state</param>
+                    <param id="1" name="Value">&quot;WALK&quot;</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="564728689806854" type="obj_enemy">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

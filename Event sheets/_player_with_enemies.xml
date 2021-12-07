@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_player_with_enemies</name>
+    <events>
+        <comment>-- PLAYER WITH ENEMIES</comment>
+        <comment>Colição com a caveira</comment>
+        <event-block sid="619950646558396">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="987990894101768" type="obj_player">
+                    <param id="0" name="Object">obj_enemy</param>
+                </condition>
+                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="554797927491341" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="809923357102112" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="878287965816729" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Se estiver acima do inimigo</comment>
+                <event-block sid="800728614296255">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="685140400217707" type="obj_player">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">obj_enemy.Y - 10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="493283430764194" type="obj_player">
+                            <param id="0" name="Vector Y">-200</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Se nao tiver acima do inimigo, leva dano</comment>
+                <event-block sid="892883864726161">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="946284921478951" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="969691091508291" type="Audio">
+                            <param id="0" name="Audio file">05</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="680111003693785" type="obj_bar_life">
+                            <param id="0" name="Instance variable">HP_CURRENT</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="136553532170393" type="obj_bar_stamina">
+                            <param id="0" name="Instance variable">HP_CURRENT</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="709330609664417" type="obj_player">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Ataque sobre as caveiras</comment>
+        <event-block sid="639933678159676">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="974899724719611" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="270658753631949" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_enemy</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="985018896071036" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="983524049451549" type="Audio">
+                    <param id="0" name="Audio file">AnyConv.com__enemy_dead_09</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-20</param>
+                    <param id="1" name="Tag (optional)">&quot;crying&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="929550660308976" type="obj_enemy">
+                    <param id="0" name="Instance variable">lifes</param>
+                    <param id="1" name="Value">1 * obj_player.damage_enemy_plus</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="482960702626176" type="obj_enemy">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="769234086009314">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="937637636656467" type="obj_enemy">
+                    <param id="0" name="Instance variable">lifes</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="606892346297206" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="958549469017442" type="obj_enemy">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="883620162072215" type="obj_enemy">
+                    <param id="0" name="Instance variable">enemy_state</param>
+                    <param id="1" name="Value">&quot;DEAD&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="135728469529525" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-3" name="Create object" sid="645946069543136" type="System">
+                    <param id="0" name="Object to create">obj_item_magic</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">obj_enemy.X - 16</param>
+                    <param id="3" name="Y">obj_enemy.Y - 32</param>
+                </action>
+                <action id="-9" name="Destroy" sid="978301409477291" type="obj_enemy" />
+            </actions>
+        </event-block>
+        <comment>Colição com a gosma</comment>
+        <event-block sid="593874831100189">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="823268212037835" type="obj_player">
+                    <param id="0" name="Object">obj_goop</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="151154192051168" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="724773809009339" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="512177236372572" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="895796706829867" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="318567908132744" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Colição com o morcego</comment>
+        <event-block sid="690502801525503">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="167672647698655" type="obj_player">
+                    <param id="0" name="Object">obj_bat</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="595905861188991" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="393668695469252" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="892717750251502" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="685847506931830" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="188195312627908" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Colição com o bloco de espinhos</comment>
+        <event-block sid="744778671912248">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="431402165071077" type="obj_player">
+                    <param id="0" name="Object">obj_block_spikes</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="818768886820650" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="727938039874675" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="999945426092764" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="635850097362930" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="855162029550036" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque sobre os morcegos</comment>
+        <event-block sid="380737259725030">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="878524055757023" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="618224256259149" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_bat</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="310561892397046" type="obj_bat">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="0" name="Play" sid="620596078255279" type="Audio">
+                    <param id="0" name="Audio file">AnyConv.com__enemy_dead_10</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="802276744163619" type="obj_bat">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="296630248145643" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="540158315612093" type="System">
+                    <param id="0" name="Object to create">obj_item_magic</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">obj_bat.X</param>
+                    <param id="3" name="Y">obj_bat.Y - 27</param>
+                </action>
+                <action id="-9" name="Destroy" sid="715410861530302" type="obj_bat" />
+            </actions>
+        </event-block>
+        <comment>Ataque sobre a fera 2</comment>
+        <event-block sid="224875068585220">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="362738126032491" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="767708150999938" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_fera_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="263099107103168" type="obj_fera_2">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="913290454423934" type="obj_fera_2">
+                    <param id="0" name="Animation">&quot;ID_UP&quot;</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="465335232985749" type="obj_fera_2">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="179434041201626" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-3" name="Create object" sid="973028520547911" type="System">
+                    <param id="0" name="Object to create">obj_item_magic</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">obj_fera_2.X</param>
+                    <param id="3" name="Y">obj_fera_2.Y - 27</param>
+                </action>
+                <action id="-9" name="Destroy" sid="772519460915060" type="obj_fera_2" />
+            </actions>
+        </event-block>
+        <comment>Animacao do ataque da Fera 2</comment>
+        <event-block sid="997257982913054">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="299180591405381" type="obj_fera_2">
+                    <param id="0" name="Object">obj_player</param>
+                    <param id="1" name="Offset X">-60</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="239368940218162" type="obj_fera_2">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="618481356372630">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="435619580097816" type="obj_fera_2">
+                            <param id="0" name="Object">obj_attack_zone_player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="951684321723017" type="obj_fera_2">
+                            <param id="0" name="Animation">&quot;ID_ATTACK&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="874498828888148" type="Audio">
+                            <param id="0" name="Audio file">Large-Monster-Grunt-Hit-01</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="872250570655300">
+            <conditions>
+                <condition id="-22" name="Else" sid="597840888180595" type="System" />
+                <condition id="-7" name="Compare instance variable" sid="874988750759302" type="obj_fera_2">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="616498285581243" type="obj_fera_2">
+                    <param id="0" name="Animation">&quot;ID_IDLE&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Dano da fera 2 no player</comment>
+        <event-block sid="381263187345014">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="671292123065574" type="obj_fera_2">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="484946802236502" type="obj_fera_2">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="357472568909445" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="339177072852165" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="208153055254206" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="406704038305737" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

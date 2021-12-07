@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_boss_fera</name>
+    <events>
+        <comment>Movimento do cavalo</comment>
+        <event-block sid="977803109484308">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="384195520015481" type="obj_fera_1">
+                    <param id="0" name="Instance variable">direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Left&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="986149992785048" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="640007712107156" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="442929598609503" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;FERA_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="180798245501699" type="obj_fera_1">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="557759265148317" type="obj_fera_attack_area">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="467209450006322" type="obj_fera_1">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="666482328732684">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="642691292898783" type="obj_fera_1">
+                    <param id="0" name="Instance variable">direction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Right&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="165094634336092" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="819818436960423" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="663612863412783" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;FERA_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="719966149046022" type="obj_fera_1">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="832092333610732" type="obj_fera_attack_area">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="906873296273738" type="obj_fera_1">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="879490702722957">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="207479203694232" type="obj_fera_1">
+                    <param id="0" name="Object">obj_floor_point</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="926535753897162" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="143135124670771" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="260092707739543" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;FERA_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="267618308591569" type="obj_fera_1">
+                    <param id="0" name="Instance variable">direction</param>
+                    <param id="1" name="Value">obj_floor_point.Move</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="892888291555735" type="obj_fera_1">
+                    <param id="0" name="Max Speed">choose(random(350, 450), random(550, 650))</param>
+                </action>
+                <action id="0" name="Play" sid="686075764150826" type="Audio">
+                    <param id="0" name="Audio file">Large-Monster-Grunt-Hit-01</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="155514639691008">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="628764389157122" type="obj_fera_attack_area">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="359994630411424" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="876318096899321" type="obj_fera_1">
+                    <param id="0" name="Instance variable">attack</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="882253506058607" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="394174456664683" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="585776292292736" type="obj_fera_1">
+                    <param id="0" name="Instance variable">attack</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="785312453760522" type="obj_fera_1">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="652484201196207" type="obj_fera_1">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;IDLE&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="344841989913862" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-10" name="Set value" sid="990507218390516" type="obj_fera_1">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;ATTACK&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="449231155795597" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="700045575876368" type="obj_fera_1">
+                    <param id="0" name="Instance variable">attack</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="975806185218081">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="197693422116892" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="703825236153230" type="obj_fera_1">
+                    <param id="0" name="Instance variable">attack</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="776490714330230" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="731581507728485" type="obj_fera_1">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;WALK&quot;</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="798441226269839" type="obj_fera_1">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque do player sobre a fera</comment>
+        <event-block sid="109974652736962">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="754596222205644" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="495758249257921" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_fera_collision</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="666243382111409" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="371141512145501" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Flash" id="0" name="Flash" sid="667049743760225" type="obj_fera_1">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">0.5</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="162507809720574" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1 * obj_player.damage_enemy_plus</param>
+                </action>
+                <action id="-10" name="Set value" sid="479941171364606" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_life_boss.HP_CURRENT*100/obj_bar_life_boss.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="499460788853569" type="obj_bar_life_boss">
+                    <param id="0" name="Width">obj_bar_life_boss.BAR_SIZE*obj_bar_life_boss.PORCENT/100</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque da fera sobre o player</comment>
+        <event-block sid="510477911029917">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="672395909261089" type="obj_fera_1">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="798299333976683" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="927833414286944" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="655824613265911" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="979930398194244" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;FERA_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="120091289686907" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Play" sid="541537361620724" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="821273113883920" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="786555614764421" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="842453774663149" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-10" name="Set value" sid="573820601455736" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Morte da fera</comment>
+        <event-block sid="612767484695074">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="186068198528508" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="876418430475766" type="obj_fera_1">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="120053962194883" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="651768793141426" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="605082854858703" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;FERA_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="291890689340105" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound_boss_battle&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="336622145895533" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="213658702734731" type="obj_fera_1">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="223408857145526" type="obj_fera_1">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;IDLE&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="969286554959881" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-10" name="Set value" sid="400890850145743" type="obj_fera_1">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;DEAD&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="472737172851304" type="obj_fera_1">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="872996926048716" type="obj_fera_1">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="356260536253158" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="975530838676166" type="System">
+                    <param id="0" name="Object to create">obj_item_key_2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">obj_fera_1.X</param>
+                    <param id="3" name="Y">obj_fera_1.Y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="390682641657796" type="obj_fera_1" />
+                <action id="-9" name="Destroy" sid="394936820394208" type="obj_fera_attack_area" />
+                <action id="-9" name="Destroy" sid="741817318806903" type="obj_fera_collision" />
+                <action id="-15" name="Set visible" sid="691488033646362" type="obj_hud_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="795247073568563" type="obj_bar_life_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="218556082230077" type="obj_avatar_small_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="22" name="Set paused" sid="148759432442257" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="905500206885631" type="obj_player">
+                    <param id="0" name="Instance variable">bg_sound</param>
+                    <param id="1" name="Value">&quot;bg_sound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

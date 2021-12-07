@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>event_sheet_start</name>
+    <events>
+        <event-block sid="477821466112759">
+            <conditions>
+                <condition id="3" name="On touched object" sid="972364136307882" type="Touch">
+                    <param id="0" name="Object">obj_btn_fake</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="776630332475345" type="Audio" />
+                <action id="-25" name="Go to layout (by name)" sid="825290434853276" type="System">
+                    <param id="0" name="Layout">obj_btn_fake.GO_TO</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="800584883113763">
+            <conditions>
+                <condition id="3" name="On touched object" sid="397368206925241" type="Touch">
+                    <param id="0" name="Object">obj_txt_link</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Go to URL" sid="926360433317706" type="Browser">
+                    <param id="0" name="URL">obj_txt_link.href</param>
+                    <param id="1" name="Target">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

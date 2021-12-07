@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="1">cutscene</layout>
+        <layout active="1" order="6">level_1</layout>
+        <layout order="8">tutorial</layout>
+        <layout order="9">start</layout>
+        <layout order="10">game_over</layout>
+        <layout order="11">final</layout>
+        <layout order="21">to_be_continued</layout>
+        <layout order="22">tutorial-hud</layout>
+        <event-sheet order="0">_dialog_box</event-sheet>
+        <event-sheet order="2">_enemies</event-sheet>
+        <event-sheet order="3">_system</event-sheet>
+        <event-sheet order="4">event_sheet_levels</event-sheet>
+        <event-sheet order="5">_player</event-sheet>
+        <event-sheet order="7">_items</event-sheet>
+        <event-sheet order="12">_bosses</event-sheet>
+        <event-sheet order="13">_boss_prince_of_darkness</event-sheet>
+        <event-sheet order="14">_boss_fera</event-sheet>
+        <event-sheet order="15">_boss_beholder</event-sheet>
+        <event-sheet order="16">_variables</event-sheet>
+        <event-sheet order="17">_doors</event-sheet>
+        <event-sheet order="18">event_sheet_start</event-sheet>
+        <event-sheet order="19">_functions</event-sheet>
+        <event-sheet order="20">_checkpoint</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/obj_collision/" />
+        <folder expanded="1" path="animation-folder/obj_player/" />
+        <folder expanded="1" path="animation-folder/obj_collision_sine/" />
+        <folder expanded="1" path="animation-folder/obj_door/" />
+        <folder expanded="1" path="animation-folder/obj_enemy/" />
+        <folder expanded="1" path="animation-folder/obj_checkpoint/" />
+        <folder expanded="1" path="animation-folder/bg_menu/" />
+        <folder expanded="1" path="animation-folder/bg_tutorial/" />
+        <folder expanded="1" path="animation-folder/bg_gameover/" />
+        <folder expanded="1" path="animation-folder/obj_black_load/" />
+        <folder expanded="1" path="animation-folder/obj_goop/" />
+        <folder expanded="1" path="animation-folder/obj_bat/" />
+        <folder expanded="1" path="animation-folder/obj_beholder/" />
+        <folder expanded="1" path="animation-folder/obj_fera_1/" />
+        <folder expanded="1" path="animation-folder/obj_prince/" />
+        <folder expanded="1" path="animation-folder/obj_item_key_feedback/" />
+        <folder expanded="1" path="animation-folder/obj_item_key_2/" />
+        <folder expanded="1" path="animation-folder/obj_item_life/" />
+        <folder expanded="1" path="animation-folder/obj_item_ax/" />
+        <folder expanded="1" path="animation-folder/obj_item_massa/" />
+        <folder expanded="1" path="animation-folder/obj_orn_door/" />
+        <folder expanded="1" path="animation-folder/obj_floor_point/" />
+        <folder expanded="1" path="animation-folder/obj_fly_point/" />
+        <folder expanded="1" path="animation-folder/obj_hud/" />
+        <folder expanded="1" path="animation-folder/obj_bar_life/" />
+        <folder expanded="1" path="animation-folder/obj_bar_stamina/" />
+        <folder expanded="1" path="animation-folder/obj_bar_magic/" />
+        <folder expanded="1" path="animation-folder/obj_bar_life_bg/" />
+        <folder expanded="1" path="animation-folder/obj_bar_stamina_bg/" />
+        <folder expanded="1" path="animation-folder/obj_item_magic/" />
+        <folder expanded="1" path="animation-folder/obj_bar_magic_bg/" />
+        <folder expanded="1" path="animation-folder/dialogBoxImage/" />
+        <folder expanded="1" path="animation-folder/obj_dialog_trigger_2/" />
+        <folder expanded="1" path="animation-folder/obj_camera/" />
+        <folder expanded="1" path="animation-folder/obj_trigger_boss_beholder/" />
+        <folder expanded="1" path="animation-folder/obj_orn_door_boss_beholder/" />
+        <folder expanded="1" path="animation-folder/obj_fera_attack_area/" />
+        <folder expanded="1" path="animation-folder/obj_fera_collision/" />
+        <folder expanded="1" path="animation-folder/obj_prince_attack_area/" />
+        <folder expanded="1" path="animation-folder/obj_beholder_offset_are/" />
+        <folder expanded="1" path="animation-folder/obj_ocean/" />
+        <folder expanded="1" path="animation-folder/obj_boat/" />
+        <folder expanded="1" path="animation-folder/obj_bg_forest/" />
+        <folder expanded="1" path="animation-folder/obj_img_front_cover/" />
+        <folder expanded="1" path="animation-folder/obj_btn_start_game/" />
+        <folder expanded="1" path="animation-folder/obj_img_tutorial/" />
+        <folder expanded="1" path="animation-folder/obj_btn_continue/" />
+        <folder expanded="1" path="animation-folder/obj_btn_fake/" />
+        <folder expanded="1" path="animation-folder/obj_img_game_over/" />
+        <folder expanded="1" path="animation-folder/obj_btn_go_to_start_screen/" />
+        <folder expanded="1" path="animation-folder/obj_caronte/" />
+        <folder expanded="1" path="animation-folder/obj_btn_close/" />
+        <folder expanded="1" path="animation-folder/obj_damage/" />
+        <folder expanded="1" path="animation-folder/obj_dead/" />
+        <folder expanded="1" path="animation-folder/obj_block_spikes/" />
+        <folder expanded="1" path="animation-folder/obj_attack_zone_player/" />
+        <folder expanded="1" path="animation-folder/obj_cutscene/" />
+        <folder expanded="1" path="animation-folder/obj_bg_to_be_continued/" />
+        <folder expanded="1" path="animation-folder/obj_bg_final/" />
+        <folder expanded="1" path="animation-folder/obj_hud_boss/" />
+        <folder expanded="1" path="animation-folder/obj_bar_life_boss/" />
+        <folder expanded="1" path="animation-folder/obj_coin_gold/" />
+        <folder expanded="1" path="animation-folder/obj_coin_feedback/" />
+        <folder expanded="1" path="animation-folder/obj_collision_the_end/" />
+        <folder expanded="1" path="animation-folder/obj_floor_boot/" />
+        <folder expanded="1" path="animation-folder/obj_sensor_msg_box/" />
+        <folder expanded="1" path="animation-folder/obj_avatar_small_boss/" />
+        <folder expanded="1" path="animation-folder/obj_evil_essence/" />
+        <folder expanded="1" path="animation-folder/obj_red_screen_fade/" />
+        <folder expanded="1" path="animation-folder/obj_statue/" />
+        <folder expanded="1" path="animation-folder/obj_board/" />
+        <folder expanded="1" path="animation-folder/obj_post/" />
+        <folder expanded="1" path="animation-folder/obj_lapide/" />
+        <folder expanded="1" path="animation-folder/obj_lapide_2/" />
+        <folder expanded="1" path="animation-folder/obj_espantalho/" />
+        <folder expanded="1" path="animation-folder/obj_wall/" />
+        <folder expanded="1" path="animation-folder/obj_tocha/" />
+        <folder expanded="1" path="animation-folder/obj_forno/" />
+        <folder expanded="1" path="animation-folder/obj_torch/" />
+        <folder expanded="1" path="animation-folder/obj_start_combat_box/" />
+        <folder expanded="1" path="animation-folder/obj_fera_2/" />
+        <folder expanded="1" path="animation-folder/obj_checkpoint_feedback/" />
+        <folder expanded="1" path="animation-folder/obj_btn_next/" />
+        <folder expanded="1" path="animation-folder/obj_tutorial_gui/" />
+        <folder expanded="1" path="animation-folder/obj_txt_link/" />
+    </folders-expanded>
+</c2uistate>

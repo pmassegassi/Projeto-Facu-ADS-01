@@ -1,0 +1,968 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_player</name>
+    <events>
+        <comment>-- PLAYER</comment>
+        <comment>Respaw do player</comment>
+        <event-block sid="102793478493791">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="588111753670683" type="obj_player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">LayoutHeight + 32</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="352880079802252" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="537754703720302" type="Function">
+                    <param id="0" name="Name">&quot;player_dies&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>-- MOVIMENTOS do WILLIAM e ADAM</comment>
+        <comment>Espelhamento e movimento do player para esquerda</comment>
+        <event-block sid="498269787840778">
+            <conditions>
+                <condition id="2" name="Key is down" sid="149350911918706" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="200770920131984" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="620474143768867" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="585386150928435" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="378084010803282" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="736964659746786" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="344500779230252" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="781774629732041" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="860930313915086" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="349282075073625" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="496675213453355" type="obj_player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="837020056995630" type="obj_attack_zone_player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="459412775204518" type="obj_sensor_msg_box">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="838981410648909" type="obj_player">
+                    <param id="0" name="Control">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="833297631648538" type="obj_player">
+                    <param id="0" name="Instance variable">aux</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player para direita</comment>
+        <event-block sid="937532456578236">
+            <conditions>
+                <condition id="2" name="Key is down" sid="499152829007350" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="648752725094721" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="283128374226676" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="210309815389863" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="185476224410868" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="172243794747460" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="787773550601616" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="295463786865035" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="359977099720904" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="409957535641347" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="830454365784505" type="obj_player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="383409267361970" type="obj_attack_zone_player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="670566630372857" type="obj_sensor_msg_box">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="991429303848101" type="obj_player">
+                    <param id="0" name="Control">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="317323160449652" type="obj_player">
+                    <param id="0" name="Instance variable">aux</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player para pular</comment>
+        <event-block sid="525032551617446">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="432833221275699" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="482312045058378" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="398111308252894" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="865102719549255" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="410858664701856" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="871087373886597" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="623104796648879" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="973446349330796" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="257458589244164" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="201785310207893" type="obj_player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Transformação em Adam</comment>
+        <event-block sid="880863184748456">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="541645092459941" type="Keyboard">
+                    <param id="0" name="Key">13</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="726849179746723" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="597315424085342" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="107861357261680" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="454434947527889" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="183635490706433" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="729554922449726" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="781611909727771" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="334068255933730" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="11" name="Set enabled" sid="879567424181126" type="obj_player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="641952491954879" type="obj_player">
+                    <param id="0" name="Instance variable">damage_enemy_plus</param>
+                    <param id="1" name="Value">(obj_player.player = &quot;ADAM&quot;) ? 1 : 3</param>
+                </action>
+                <action id="-10" name="Set value" sid="986440911485627" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Value">(obj_player.player = &quot;ADAM&quot;) ? &quot;WILLIAM&quot; : &quot;ADAM&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="322306423628834" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="508348048643846" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;TRANSFORM&quot;</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="996205643978962" type="obj_player">
+                    <param id="0" name="Max fall speed">(obj_player.player = &quot;ADAM&quot;) ? 0 : 1200</param>
+                </action>
+                <action id="-16" name="Wait" sid="197665510821454" type="System">
+                    <param id="0" name="Seconds">(obj_player.player = &quot;ADAM&quot;) ? 2.0 : 0.5</param>
+                </action>
+                <action id="-10" name="Set value" sid="234181587529545" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="594093562319929" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="164013243105548" type="obj_player">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Fim da transformação do Adam</comment>
+        <event-block sid="920919555829199">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="414605827835933" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="331394820711632" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="772995939711303" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="399008615284341" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="846159113718544" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="889392483402469" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;ADAM&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="738103069435359" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="454010035868409" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="292202037065725" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="412384453196018" type="obj_player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="443845306736700" type="obj_player">
+                    <param id="0" name="Instance variable">damage_enemy_plus</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="832251079816009" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;TRANSFORM&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="881278745285621" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-10" name="Set value" sid="741364527016646" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="785876453087190" type="obj_player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="206229994363931" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Value">&quot;WILLIAM&quot;</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="642112323109274" type="obj_player">
+                    <param id="0" name="Max fall speed">1200</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player ADAM voar para baixo</comment>
+        <event-block sid="421580160638020">
+            <conditions>
+                <condition id="2" name="Key is down" sid="684238306547211" type="Keyboard">
+                    <param id="0" name="Key">87</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="212292280211779" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="964305735280223" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="446734094618308" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="264250642544104" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="591866120584672" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="571783625527837" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;ADAM&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="594051720106935" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="926499084512550" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="766405005910238" type="obj_player">
+                    <param id="0" name="Y">obj_player.Y - 3</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player ADAM voar para cima</comment>
+        <event-block sid="235672173160256">
+            <conditions>
+                <condition id="2" name="Key is down" sid="816091525069899" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="219537788126648" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="530123899314226" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="767414694492630" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="917754127994278" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="155991945125889" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="440839011606495" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;ADAM&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="445357496120430" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="935809889907860" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="366950273859035" type="obj_player">
+                    <param id="0" name="Y">obj_player.Y + 3</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player nao estiver se movendo</comment>
+        <event-block sid="594727865239716">
+            <conditions>
+                <condition behavior="Platform" id="2" name="Is on floor" sid="463321924852861" type="obj_player" />
+                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="494190185656183" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="901961816612234" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="946365404072790" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="649201894993941" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="307936453492043" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="142401409144980" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="122296929740368" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="312838138275449" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;IDLE&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o jogador estiver pulando</comment>
+        <event-block sid="181268368659075">
+            <conditions>
+                <condition behavior="Platform" id="5" name="On jump" sid="444454807876158" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="530403869728459" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="683146105810852" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="581198866147794" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="501705889520566" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="256645523464872" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="336669791344972" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="877252517809475" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="560299055249900" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="515035800398399" type="obj_player" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="461822377356363" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;JUMP&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="678224372659348" type="Audio">
+                    <param id="0" name="Audio file">06</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o jogador estiver caindo</comment>
+        <event-block sid="431303506444588">
+            <conditions>
+                <condition behavior="Platform" id="4" name="Is falling" sid="346128993875304" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="931543131328469" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="273895768725791" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="662217578734527" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="379206183133432" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="619458757763366" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="641031822612091" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition behavior="Platform" id="1" name="Compare speed" sid="141959095245933" type="obj_player">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Speed">160</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="895581055252731" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="276373273815792" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="395559690271995" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="234306298605467" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;FALL&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player para abaixar</comment>
+        <event-block sid="174361940696000">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="487131380524909" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="498623835849173" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="677258701726779" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="140426746267008" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="356650861993943" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="411866247146788" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="895225447299745" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="438531534642424" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="937076143903136" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;LOWER&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o jogador estiver andando</comment>
+        <event-block sid="281651866031994">
+            <conditions>
+                <condition behavior="Platform" id="0" name="Is moving" sid="708019748265238" type="obj_player" />
+                <condition behavior="Platform" id="3" inverted="1" name="Is jumping" sid="609232138817456" type="obj_player" />
+                <condition behavior="Platform" id="4" inverted="1" name="Is falling" sid="617400052383165" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="843406427102102" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="824731951313095" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="445169769494866" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="193696071791565" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="145335275157338" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="147428121584617" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="774986995153709" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="549390323608006" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="945937640312867" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="476818688405765" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;WALK&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player pulando para atacar</comment>
+        <event-block sid="721167465595815">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="590984111968498" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition behavior="Platform" id="3" name="Is jumping" sid="167191294860431" type="obj_player" />
+                <condition id="-7" name="Compare instance variable" sid="357779029569890" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="344639886429810" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">50</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="154148788788330" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="412465073436568" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="773813402542798" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="736942261559394" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="397813524151288" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="978633520711709" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="156717522122421" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;WILLIAM&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="514762419740846" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="506890009968468" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="966398630487835" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="244630003739340" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;JUMP_ATTACK&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="266235453319064" type="Audio">
+                    <param id="0" name="Audio file">03</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-14</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="961754906973150" type="Audio">
+                    <param id="0" name="Audio file">swish_4</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="531113064145594" type="System">
+                    <param id="0" name="Seconds">0.4</param>
+                </action>
+                <action id="-10" name="Set value" sid="781946161160252" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Espelhamento e movimento do player para atacar</comment>
+        <event-block sid="443772739377735">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="332715408417279" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="955928547190149" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="422358390977225" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">50</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="642993629591690" type="obj_player">
+                    <param id="0" name="Instance variable">is_player_transforming</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="582184783389130" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="574827369770778" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="395930871534858" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="917437578290796" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="486144852715051" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="217129404802589" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="355044217301289" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="951914282526826" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="809194252417971" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="816750066431708" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;UP_ATTACK_1&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="395233856137142" type="Audio">
+                    <param id="0" name="Audio file">03</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-14</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="674789258604769" type="Audio">
+                    <param id="0" name="Audio file">swish_4</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="425109405887056" type="System">
+                    <param id="0" name="Seconds">0.4</param>
+                </action>
+                <action id="-10" name="Set value" sid="105350742569043" type="obj_player">
+                    <param id="0" name="Instance variable">is_attack</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="853284002595625" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;IDLE&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player cair nos espinhos, ele morre</comment>
+        <event-block sid="174230324975921">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="869178420369417" type="obj_player">
+                    <param id="0" name="Object">obj_dead</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="885600820416878" type="Function">
+                    <param id="0" name="Name">&quot;player_dies&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player encostar nos espinhos, sofre dano</comment>
+        <event-block sid="990153945175393">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="568991213159728" type="obj_player">
+                    <param id="0" name="Object">obj_damage</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="638614443536600" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="618568123292497" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="907263386256616" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="374279182440901" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

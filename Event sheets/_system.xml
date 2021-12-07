@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_system</name>
+    <events>
+        <comment>-- SYSTEM</comment>
+        <comment>Faça a todo momento</comment>
+        <comment>Barra de vida</comment>
+        <comment>Barra de estamina</comment>
+        <comment>Barra de magia</comment>
+        <event-block sid="423943184940027">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="852068903937347" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="317975094399661" type="obj_enemy">
+                    <param id="0" name="Animation">&quot;ID_&quot; &amp; obj_enemy.enemy_state</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="334672789717726" type="obj_player">
+                    <param id="0" name="Animation">&quot;ID_&quot; &amp; obj_player.player &amp; &quot;_&quot; &amp; obj_player.player_state</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="303746083219321" type="obj_fera_1">
+                    <param id="0" name="Animation">&quot;ID_&quot; &amp; obj_fera_1.state</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="406870691034085" type="obj_prince">
+                    <param id="0" name="Animation">&quot;ID_&quot; &amp; obj_prince.state</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="920360498223932" type="obj_checkpoint">
+                    <param id="0" name="Animation">&quot;ID_&quot; &amp; obj_checkpoint.checkpoint_state</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="467511366947310" type="obj_bar_life">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_life.HP_CURRENT*100/obj_bar_life.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="587292665676787" type="obj_bar_life">
+                    <param id="0" name="Width">obj_bar_life.BAR_SIZE*obj_bar_life.PORCENT/100</param>
+                </action>
+                <action id="-5" name="Set width" sid="464795669773444" type="obj_bar_life_bg">
+                    <param id="0" name="Width">lerp(Self.width, obj_bar_life.width,3*dt)</param>
+                </action>
+                <action id="-10" name="Set value" sid="927055566822499" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_stamina.HP_CURRENT*100/obj_bar_stamina.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="144507662016848" type="obj_bar_stamina">
+                    <param id="0" name="Width">obj_bar_stamina.BAR_SIZE*obj_bar_stamina.PORCENT/100</param>
+                </action>
+                <action id="-5" name="Set width" sid="300485184407856" type="obj_bar_stamina_bg">
+                    <param id="0" name="Width">lerp(Self.width, obj_bar_stamina.width,3*dt)</param>
+                </action>
+                <action id="-10" name="Set value" sid="734929248443149" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_magic.HP_CURRENT*100/obj_bar_magic.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="410327183416759" type="obj_bar_magic">
+                    <param id="0" name="Width">obj_bar_magic.BAR_SIZE*obj_bar_magic.PORCENT/100</param>
+                </action>
+                <action id="-5" name="Set width" sid="477386044178892" type="obj_bar_magic_bg">
+                    <param id="0" name="Width">lerp(Self.width, obj_bar_magic.width,3*dt)</param>
+                </action>
+                <action id="-3" name="Set position" sid="976054206788956" type="obj_camera">
+                    <param id="0" name="X">lerp(obj_camera.X, obj_player.X, 0.05)</param>
+                    <param id="1" name="Y">lerp(obj_camera.Y, obj_player.Y - 350, 0.05)</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="532010905499777" type="obj_fera_attack_area">
+                    <param id="0" name="Object">obj_fera_1</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="162842077227155" type="obj_fera_collision">
+                    <param id="0" name="Object">obj_fera_1</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="960849403368728" type="obj_prince_attack_area">
+                    <param id="0" name="X">obj_prince.X</param>
+                    <param id="1" name="Y">obj_prince.Y - 20</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="734707067781248" type="obj_beholder_offset_are">
+                    <param id="0" name="Object">obj_beholder</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="896234135662808" type="obj_attack_zone_player">
+                    <param id="0" name="X">(obj_player.X + ((obj_player.Width) / 5))</param>
+                    <param id="1" name="Y">obj_player.Y -(obj_player.Height / 2)</param>
+                </action>
+                <action id="-3" name="Set position" sid="443106771135580" type="obj_sensor_msg_box">
+                    <param id="0" name="X">(obj_player.X + ((obj_player.Width) / 5))</param>
+                    <param id="1" name="Y">obj_player.Y</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="514420659494738" type="obj_collision_the_end">
+                    <param id="0" name="Object">obj_boat</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="649850758480869" type="obj_caronte">
+                    <param id="0" name="Object">obj_boat</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="807135209603263" type="obj_player">
+                    <param id="0" name="Acceleration">obj_bar_stamina.PORCENT * 5.0</param>
+                </action>
+                <action behavior="Platform" id="3" name="Set deceleration" sid="511622614362838" type="obj_player">
+                    <param id="0" name="Deceleration">obj_bar_stamina.PORCENT * 5.0</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="672732051323256" type="obj_player">
+                    <param id="0" name="Max Speed">obj_bar_stamina.PORCENT * 1.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o layout iniciar</comment>
+        <comment>Posiçoes do HUB e tela de Intro</comment>
+        <event-block sid="918082433141210">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="182666837689233" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="457703030991574" type="obj_black_load">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">480</param>
+                </action>
+                <action id="6" name="Stop" sid="940494739711558" type="Audio">
+                    <param id="0" name="Tag">&quot;lose&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="575071551984378" type="obj_player">
+                    <param id="0" name="Instance variable">start_x</param>
+                    <param id="1" name="Value">obj_player.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="923775919862796" type="obj_player">
+                    <param id="0" name="Instance variable">start_y</param>
+                    <param id="1" name="Value">obj_player.Y</param>
+                </action>
+                <action id="-3" name="Set position" sid="919524544963322" type="obj_hud">
+                    <param id="0" name="X">10</param>
+                    <param id="1" name="Y">41</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="780705024049532" type="obj_orn_door_boss_beholder">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="295655614244512" type="obj_fera_1">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="987043729081441" type="dialogBoxBg">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="171182522831934" type="dialogBoxText">
+                    <param id="0" name="X">32</param>
+                    <param id="1" name="Y">32</param>
+                </action>
+                <action id="-3" name="Set position" sid="758589510496536" type="dialogBoxImage">
+                    <param id="0" name="X">540</param>
+                    <param id="1" name="Y">98</param>
+                </action>
+                <action id="-3" name="Set position" sid="123346593165956" type="obj_btn_next">
+                    <param id="0" name="X">32</param>
+                    <param id="1" name="Y">160</param>
+                </action>
+                <action id="-10" name="Set value" sid="543705694250554" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">25</param>
+                </action>
+                <action id="-10" name="Set value" sid="808849611505083" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="375535099426185" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="0" name="Play" sid="485485234564975" type="Audio">
+                    <param id="0" name="Audio file">MonsterVania-Ghost-Land-_mp3cut.net_</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-20</param>
+                    <param id="1" name="Tag (optional)">&quot;bg_sound&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="847648453531893" type="obj_player">
+                    <param id="0" name="Instance variable">started</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="372360809083997" type="obj_player">
+                    <param id="0" name="Instance variable">bg_sound</param>
+                    <param id="1" name="Value">&quot;bg_sound&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Coloca as posições do checkpoint nas variaveis de instancia do player</comment>
+                <event-block sid="770281855466780">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="429151725000015" type="System">
+                            <param id="0" name="Object">obj_checkpoint</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="190778323370681" type="obj_checkpoint">
+                            <param id="0" name="Instance variable">X_POSITION</param>
+                            <param id="1" name="Value">obj_checkpoint.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="342196558414612" type="obj_checkpoint">
+                            <param id="0" name="Instance variable">Y_POSITION</param>
+                            <param id="1" name="Value">obj_checkpoint.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="127430662573745">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="520768751600274" type="Keyboard">
+                    <param id="0" name="Key">80</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="561616029611202" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="199241174649890">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="306048695271501" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="984531540495836" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="208877375957687" type="text_pause">
+                    <param id="0" name="X">220</param>
+                    <param id="1" name="Y">208</param>
+                </action>
+                <action id="22" name="Set paused" sid="312932950967799" type="Audio">
+                    <param id="0" name="Tag">obj_player.bg_sound</param>
+                    <param id="1" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="466113242613038">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="159877929061886" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="304162067734972" type="System">
+                    <param id="0" name="Time scale">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="986377068395281" type="text_pause">
+                    <param id="0" name="X">-100</param>
+                    <param id="1" name="Y">-100</param>
+                </action>
+                <action id="22" name="Set paused" sid="488861855059429" type="Audio">
+                    <param id="0" name="Tag">obj_player.bg_sound</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="724326501407308" type="obj_player">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Game Over</comment>
+        <event-block sid="567477484817337">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="387165488855954" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="882990173670656" type="Audio">
+                    <param id="0" name="Audio file">lose-music-2-1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-20</param>
+                    <param id="1" name="Tag (optional)">&quot;lose&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="345016354725896" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;DEAD&quot;</param>
+                </action>
+                <action id="6" name="Stop" sid="103208825828090" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound&quot;</param>
+                </action>
+                <action id="6" name="Stop" sid="865607515855588" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound_boss_battle&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="197418856138830" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="510714379471708" type="System">
+                    <param id="0" name="Layout">game_over</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Recuperação da stamina ao passar do tempo</comment>
+        <event-block sid="600665353352467">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="462547410760927" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="927459443832840" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="838327111083993" type="obj_bar_stamina">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Dimunuir a barra de magia ao passar do tempo quando houver transformação</comment>
+        <event-block sid="731708353092660">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="995638132469647" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="141383942752780" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">100</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="516172669850172" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="794133658454071" type="obj_player">
+                    <param id="0" name="Instance variable">has_dialog</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="495651407299254" type="obj_player">
+                    <param id="0" name="Instance variable">player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;ADAM&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="270856251696105" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player entrar no barco com a moeda</comment>
+        <event-block sid="196586758150220">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="725790489684684" type="obj_player">
+                    <param id="0" name="Object">obj_collision_the_end</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="433319142300805" type="obj_player">
+                    <param id="0" name="Instance variable">coin_gold</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="109618089722633" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="440787259560833" type="obj_player">
+                    <param id="0" name="Instance variable">end</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="434190068888068" type="System">
+                    <param id="0" name="Seconds">4.0</param>
+                </action>
+                <action id="0" name="Play" sid="851785033002584" type="Audio">
+                    <param id="0" name="Audio file">Keys_03</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="511691676683026" type="obj_coin_feedback">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="445171102332977" type="obj_sensor_msg_box" />
+                <action behavior="Platform" id="11" name="Set enabled" sid="277247436243347" type="obj_player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="183666520860941" type="obj_boat">
+                    <param id="0" name="Speed">100</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="958874223905705" type="obj_boat">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="692050191758613" type="obj_boat">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="692564766935586" type="obj_player">
+                    <param id="0" name="Pin to">obj_boat</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="496722505096686" type="System">
+                    <param id="0" name="Seconds">6</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="690028815365928" type="System">
+                    <param id="0" name="Layout">to_be_continued</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Encontro com a ESSÊNCIA MALIGNA</comment>
+        <event-block sid="192517832448798">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="451286436078414" type="obj_player">
+                    <param id="0" name="Object">obj_evil_essence</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="22" name="Set paused" sid="449310446349552" type="Audio">
+                    <param id="0" name="Tag">obj_player.bg_sound</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="188080899031440" type="obj_red_screen_fade">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="866519468931835" type="obj_red_screen_fade" />
+                <action id="-9" name="Destroy" sid="130603834687886" type="obj_evil_essence" />
+                <action id="-16" name="Wait" sid="712483890808398" type="System">
+                    <param id="0" name="Seconds">4</param>
+                </action>
+                <action id="-9" name="Destroy" sid="784610632893474" type="obj_red_screen_fade" />
+                <action id="22" name="Set paused" sid="644351691080352" type="Audio">
+                    <param id="0" name="Tag">obj_player.bg_sound</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

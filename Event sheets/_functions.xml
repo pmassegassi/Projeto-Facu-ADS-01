@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_functions</name>
+    <events>
+        <comment>Quando o jogador, analisamos o checkpoint</comment>
+        <event-block sid="268701082186090">
+            <conditions>
+                <condition id="0" name="On function" sid="625159254460920" type="Function">
+                    <param id="0" name="Name">&quot;player_dies&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="135489101750902" type="System">
+                    <param id="0" name="Object to create">obj_black_load</param>
+                    <param id="1" name="Layer">3</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">480</param>
+                </action>
+                <action id="-15" name="Set visible" sid="800379809391868" type="obj_black_load">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="440246098522496" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="620571749586422" type="obj_player">
+                    <param id="0" name="Instance variable">player_state</param>
+                    <param id="1" name="Value">&quot;DEAD&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="556540372183144" type="Audio">
+                    <param id="0" name="Audio file">death_bell_sound_effect</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="138780279350154" type="Audio">
+                    <param id="0" name="Audio file">05</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="705804859905107" type="obj_player">
+                    <param id="0" name="Max fall speed">1200</param>
+                </action>
+                <action id="-16" name="Wait" sid="216523570544380" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="500982383910293" type="obj_black_load">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action behavior="Fade" id="3" name="Set wait time" sid="535740009240604" type="obj_black_load">
+                    <param id="0" name="Wait time">3.5</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="755118929325905" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-3" name="Set position" sid="326373101614384" type="obj_player">
+                    <param id="0" name="X">obj_player.start_x</param>
+                    <param id="1" name="Y">obj_player.start_y</param>
+                </action>
+                <action id="-10" name="Set value" sid="378028231712240" type="obj_player">
+                    <param id="0" name="Instance variable">is_deading</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Se o player salvou, volta no checkpoint</comment>
+                <event-block sid="109084722250402">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="730956638879250" type="obj_player">
+                            <param id="0" name="Instance variable">last_checkpoint</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="258963207300518" type="obj_player">
+                            <param id="0" name="X">obj_player.last_checkpoint_x</param>
+                            <param id="1" name="Y">obj_player.last_checkpoint_y</param>
+                        </action>
+                        <action id="-46" name="Recreate initial objects" sid="422781791519422" type="System">
+                            <param id="0" name="Object">obj_enemy</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">LayoutWidth</param>
+                            <param id="4" name="To Y">LayoutHeight</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Se não volta para o inicio da fase</comment>
+                <event-block sid="518682155644067">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="850534836268617" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="886802381712230" type="obj_player">
+                            <param id="0" name="X">obj_player.start_x</param>
+                            <param id="1" name="Y">obj_player.start_y</param>
+                        </action>
+                        <action id="-46" name="Recreate initial objects" sid="359321036371652" type="System">
+                            <param id="0" name="Object">obj_enemy</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">LayoutWidth</param>
+                            <param id="4" name="To Y">LayoutHeight</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Destroi todos os inimigos para depois recrialos</comment>
+                <event-block sid="213258444238997">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="264895096937416" type="System">
+                            <param id="0" name="Object">obj_enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="494136913058759" type="obj_enemy" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

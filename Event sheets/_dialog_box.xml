@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_dialog_box</name>
+    <events>
+        <comment>Caixa de texto</comment>
+        <event-block sid="370417567600441">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="157707803642755" type="obj_sensor_msg_box">
+                    <param id="0" name="Object">obj_dialog_trigger_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="864881887119557" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="336217071744757" type="obj_dialog_trigger_2" />
+                <action id="-15" name="Set visible" sid="313352678756691" type="dialogBoxText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="128196684385061" type="dialogBoxBg">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="541263426572510" type="dialogBoxImage">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="234221772044015" type="obj_btn_next">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="815732822045718" type="dialogBoxText">
+                    <param id="0" name="Text">left(obj_dialog_trigger_2.text, len(obj_dialog_trigger_2.text) + 1)</param>
+                </action>
+                <action id="4" name="Set animation" sid="160706782439560" type="dialogBoxImage">
+                    <param id="0" name="Animation">obj_player.player&amp;&quot;_&quot;&amp;obj_dialog_trigger_2.image_player</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="909150559154246" type="obj_camera">
+                    <param id="0" name="Instance variable">next_dialog</param>
+                    <param id="1" name="Value">obj_dialog_trigger_2.next</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Proximo bloco do dialogo se houver</comment>
+        <event-block sid="805150547257221">
+            <conditions>
+                <condition id="17" name="On tap object" sid="665391651799648" type="Touch">
+                    <param id="0" name="Object">obj_btn_next</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="531768077423016" type="obj_sensor_msg_box">
+                    <param id="0" name="Width">(obj_camera.next_dialog = 0) ? obj_sensor_msg_box.size_default * obj_player.aux : obj_sensor_msg_box.Width + obj_sensor_msg_box.next_size * obj_player.aux</param>
+                </action>
+                <action id="-15" name="Set visible" sid="172759486264049" type="dialogBoxText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="336372893113172" type="dialogBoxBg">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="923452856670912" type="dialogBoxImage">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="441905514069898" type="obj_btn_next">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="337622077615921" type="obj_camera">
+                    <param id="0" name="Instance variable">has_pause</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

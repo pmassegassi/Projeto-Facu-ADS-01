@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_doors</name>
+    <events>
+        <comment>Quando player abrir as portas</comment>
+        <event-block sid="698547092999816">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="634720654812582" type="obj_player">
+                    <param id="0" name="Object">obj_orn_door</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="948829708609106" type="obj_player">
+                    <param id="0" name="Instance variable">key</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">obj_orn_door.DOOR_KEY</param>
+                </condition>
+                <condition behavior="Solid" id="0" name="Is enabled" sid="785907276788151" type="obj_orn_door" />
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="933432861878082" type="obj_orn_door">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="994526670353154" type="obj_orn_door">
+                    <param id="0" name="Animation">&quot;ID_OPEN&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="757450519706768" type="Audio">
+                    <param id="0" name="Audio file">door-03</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="304054420354702" type="obj_item_key_feedback">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

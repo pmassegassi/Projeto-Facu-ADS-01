@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_boss_prince_of_darkness</name>
+    <events>
+        <comment>Movimento do principe ate o player</comment>
+        <event-block sid="872249781455586">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="769180210654025" type="System">
+                    <param id="0" name="Interval (seconds)">2.5</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="370547791026896" type="obj_prince">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;IDLE&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="491662461789073" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="518122292707658" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="161569869847395" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PRINCE_PLAYER&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="777727548245894" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="991868724487951" type="obj_orn_door">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="911074802162815" type="obj_orn_door">
+                    <param id="0" name="Animation">&quot;ID_CLOSE&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="683076586473450" type="obj_prince">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="398967555785752" type="obj_prince">
+                    <param id="0" name="Angle">angle(obj_prince.x, obj_prince.y, obj_player.x, obj_player.y) </param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="178911735503119" type="obj_prince">
+                    <param id="0" name="Speed">choose(random(400, 550), random(650, 850))</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Animação do ataque do principe</comment>
+        <event-block sid="110632347101210">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="403677670866394" type="obj_prince_attack_area">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="948767612754452" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="269250195527846" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="930753492276032" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PRINCE_PLAYER&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="821719150673431" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="114983590085716" type="obj_prince">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="448488251293458" type="obj_prince">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="494250966194017" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-10" name="Set value" sid="840904638338341" type="obj_prince">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;ATTACK&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="341012269460296" type="Audio">
+                    <param id="0" name="Audio file">swish_4</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="754841125145888" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-10" name="Set value" sid="338285935800175" type="obj_prince">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;IDLE&quot;</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="851968732189313" type="obj_prince">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="979457554744112" type="obj_prince">
+                    <param id="0" name="Opacity">25</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque do principe sobre o player</comment>
+        <event-block sid="577675430140456">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="237121302160316" type="obj_prince">
+                    <param id="0" name="Object">obj_player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="776547577877178" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="887062354579197" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="816690231143580" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PRINCE_PLAYER&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="293095761673959" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="626833282325559" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="273148481989048" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="809791281002041" type="obj_player">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1</param>
+                </action>
+                <action id="0" name="Play" sid="718671364408472" type="Audio">
+                    <param id="0" name="Audio file">qubodupevillaughter</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-25</param>
+                    <param id="1" name="Tag (optional)">&quot;bg_sound_boss_battle&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="683803545555224" type="System">
+                    <param id="0" name="Seconds">2.0</param>
+                </action>
+                <action id="-10" name="Set value" sid="184529901296503" type="obj_player">
+                    <param id="0" name="Instance variable">has_damage</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ataque do player sobre o principe</comment>
+        <event-block sid="561330023245820">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="202054029720019" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="293225990260630" type="obj_attack_zone_player">
+                    <param id="0" name="Object">obj_prince</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="173260700647899" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="664428439482307" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="263195811857571" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PRINCE_PLAYER&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="527190833959398" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="471899919898750" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="731316487629208" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="195860087374611" type="Audio">
+                    <param id="0" name="Audio file">AnyConv.com__enemy_dead_10</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="407157073388903" type="obj_prince">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">0.5</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="615146690266696" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">1 * obj_player.damage_enemy_plus</param>
+                </action>
+                <action id="-10" name="Set value" sid="828864166385595" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">PORCENT</param>
+                    <param id="1" name="Value">obj_bar_life_boss.HP_CURRENT*100/obj_bar_life_boss.HP_MAX</param>
+                </action>
+                <action id="-5" name="Set width" sid="357024298417554" type="obj_bar_life_boss">
+                    <param id="0" name="Width">obj_bar_life_boss.BAR_SIZE*obj_bar_life_boss.PORCENT/100</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Morte do principe</comment>
+        <event-block sid="865536400984003">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="887874491750245" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="291579984265986" type="obj_bar_life_boss">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="946173925878920" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="187423829004943" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">box_player</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PRINCE_PLAYER&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="699133670993069" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="802509005602008" type="obj_prince">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="6" name="Stop" sid="217949553145216" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound_boss_battle&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="415311015200937" type="obj_prince">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">&quot;DEAD&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="299118792328245" type="obj_start_combat_box">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="859344968698025" type="obj_prince">
+                    <param id="0" name="Instance variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="787208477131214" type="obj_prince">
+                    <param id="0" name="Instance variable">alive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="892954338296349" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="823209196509375" type="System">
+                    <param id="0" name="Object to create">obj_item_key_2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">obj_prince.X</param>
+                    <param id="3" name="Y">obj_prince.Y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="698194347071509" type="obj_prince" />
+                <action id="-9" name="Destroy" sid="534742878586738" type="obj_prince_attack_area" />
+                <action id="-15" name="Set visible" sid="674966124303264" type="obj_hud_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="125178962944625" type="obj_bar_life_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="728417982901676" type="obj_avatar_small_boss">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="22" name="Set paused" sid="939320452827205" type="Audio">
+                    <param id="0" name="Tag">&quot;bg_sound&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="279316687546182" type="obj_player">
+                    <param id="0" name="Instance variable">bg_sound</param>
+                    <param id="1" name="Value">&quot;bg_sound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

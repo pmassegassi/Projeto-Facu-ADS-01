@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>event_sheet_levels</name>
+    <events>
+        <include>_variables</include>
+        <include>_items</include>
+        <include>_system</include>
+        <include>_dialog_box</include>
+        <include>_player</include>
+        <include>_checkpoint</include>
+        <include>_player_with_enemies</include>
+        <include>_doors</include>
+        <include>_enemies</include>
+        <include>_bosses</include>
+        <include>_boss_beholder</include>
+        <include>_boss_fera</include>
+        <include>_boss_prince_of_darkness</include>
+        <include>_functions</include>
+    </events>
+</c2eventsheet>

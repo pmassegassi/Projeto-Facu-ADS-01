@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>_items</name>
+    <events>
+        <comment>Quando player pegar o item vida</comment>
+        <event-block sid="306474996050797">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="428342864857584" type="obj_player">
+                    <param id="0" name="Object">obj_item_life</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="124840680693159" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">30</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="139631208828178" type="obj_item_life" />
+                <action id="-10" name="Set value" sid="237046362622046" type="obj_bar_life">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">(obj_bar_life.HP_CURRENT + 5 &gt; 30) ? 30 : obj_bar_life.HP_CURRENT + 5</param>
+                </action>
+                <action id="0" name="Play" sid="879812481300202" type="Audio">
+                    <param id="0" name="Audio file">power_up</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando player pegar o item magia</comment>
+        <event-block sid="987139954803373">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="983945521885847" type="obj_player">
+                    <param id="0" name="Object">obj_item_magic</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="987983555546632" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">100</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="758099684022966" type="Keyboard">
+                    <param id="0" name="Key">76</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="370166789050580" type="obj_item_magic" />
+                <action id="-10" name="Set value" sid="497047681202289" type="obj_bar_magic">
+                    <param id="0" name="Instance variable">HP_CURRENT</param>
+                    <param id="1" name="Value">(obj_bar_magic.HP_CURRENT + 3 &gt; 100) ? 100 : obj_bar_magic.HP_CURRENT + 3</param>
+                </action>
+                <action id="0" name="Play" sid="791553099915675" type="Audio">
+                    <param id="0" name="Audio file">power_up</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player pegar as chaves</comment>
+        <event-block sid="888143115423774">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="673505490808549" type="obj_player">
+                    <param id="0" name="Object">obj_item_key_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="562394515738128" type="obj_player">
+                    <param id="0" name="Instance variable">key</param>
+                    <param id="1" name="Value">obj_item_key_2.KEY</param>
+                </action>
+                <action id="0" name="Play" sid="634890440537495" type="Audio">
+                    <param id="0" name="Audio file">Keys_03</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="993867663859806" type="obj_item_key_2" />
+                <action id="-15" name="Set visible" sid="471513418343641" type="obj_item_key_feedback">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Quando o player pegar a moeda de ouro</comment>
+        <event-block sid="112297080969360">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="139168685876426" type="obj_player">
+                    <param id="0" name="Object">obj_coin_gold</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="955980834566526" type="obj_player">
+                    <param id="0" name="Instance variable">coin_gold</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Play" sid="111959353431535" type="Audio">
+                    <param id="0" name="Audio file">power_up</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="306178918258329" type="obj_coin_gold" />
+                <action id="-15" name="Set visible" sid="569454404403236" type="obj_coin_feedback">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
